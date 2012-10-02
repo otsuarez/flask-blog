@@ -1,0 +1,17 @@
+{% extends "default/layout.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+     <h2>{{ post.subject }}</h2>
+     <p>{{ post.content|safe }}</p>
+{% endblock %}
+
+{% block buttons %}
+{% if g.user %}
+    <div class="buttons">
+        <a href="{{ url_for('edit', slug=post.slug) }}" class="button">Edit</a>
+        <a href="{{ url_for('delete', slug=post.slug) }}" class="button">Delete</a>
+    </div>
+{% endif %}
+{% endblock %}

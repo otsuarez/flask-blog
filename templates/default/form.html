@@ -1,0 +1,17 @@
+{% extends "default/layout.html" %}
+
+{% block title %}Add{% endblock %}
+
+{% block body %}
+    <form method="post" action="">
+      <dl>
+        {{ form.csrf }}
+        {{ form.subject.label }} {{ form.subject(class="form-input", style="width:100%") }}
+	{% for error in form.subject.errors %} {{ error }} {% endfor %}
+		<br />
+	{{ form.content.label }} {{form.content(class="form-input", style="height:100px;width:100%") }}
+	{% for error in form.content.errors %} {{ error }} {% endfor %}
+      </dl>
+      <p><input type="submit" value="submit">
+    </form>
+{% endblock %}
